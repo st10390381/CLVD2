@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .contact-info {
+            margin-top: 50px;
+            padding: 20px;
+            border: 2px solid white;
+            border-radius: 10px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+            .contact-info p {
+                margin: 10px 0;
+            }
+    </style>
+</head>
+<body>
+    <h1><strong>@ViewData["Title"]</strong></h1>
+
+    <p>Khumalo Craft contact information:</p>
+
+    <div class="contact-info">
+        <p><strong>Address:</strong> 123 Main Street, Johannesburg, South Africa</p>
+        <p><strong>Email:</strong> info@khumalocraft.com</p>
+        <p><strong>Phone:</strong> +27234567890</p>
+        <p><strong>Hours of Operation:</strong> Monday to Friday, 9:00 AM - 5:00 PM</p>
+    </div>
+</body>

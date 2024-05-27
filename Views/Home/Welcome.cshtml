@@ -1,0 +1,161 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] - Khumalo Craft</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/KCrafts.styles.css" asp-append-version="true" />
+
+    <style>
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                transition: transform 0.3s ease-in-out;
+            }
+
+        .gallery-item-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            color: #fff;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover .gallery-item-info {
+            transform: translateY(0);
+        }
+
+        .w3-beige-brown {
+            background-color: #8B7355;
+            color: #fff;
+        }
+
+        header h1, header p, header a {
+            color: white;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            border: 1px solid white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+            header a:hover {
+                background-color: #fff;
+                color: #000;
+            }
+
+        .w3-row-padding .w3-twothird {
+            padding-right: 16px;
+        }
+
+        .w3-row-padding .w3-third {
+            padding-left: 16px;
+        }
+
+        .gallery-item img {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .gallery-item-info h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .gallery-item-info p {
+            margin: 10px 0 0;
+            font-size: 0.9em;
+        }
+
+        .w3-opacity p {
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .w3-opacity {
+            padding: 64px 16px;
+        }
+    </style>
+</head>
+<body>
+    <header class="w3-container w3-beige-brown w3-center" style="padding:128px 16px">
+        <h1 class="w3-margin w3-jumbo">Khumalo Craft</h1>
+        <p class="w3-xlarge">Welcome to KhumaloCraft Emporium</p>
+        <a href="/Home/Index" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Shop</a>
+        <p>
+            <font size="5">v</font>
+            <br />
+            <font size="5">v</font>
+            <br />
+            <font size="5">v</font>
+        </p>
+    </header>
+
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div class="w3-twothird">
+                <h1>Khumalo Craft</h1>
+                <h5 class="w3-padding-32">Discover Unique Handcrafted Creations</h5>
+                <p class="w3-text-grey">
+                    Welcome to Khumalo Craft, your premier destination for exquisite handcrafted items. Our collection features a diverse range of artisanal crafts, including stunning jewelry pieces, elegant home decor, and much more. Each item is meticulously crafted with passion and skill, making it a perfect addition to your personal collection or a thoughtful gift for someone special.
+                </p>
+                <p class="w3-text-grey">
+                    We invite you to explore our extensive collection and find the perfect piece that resonates with your style and taste. From custom-made jewelry to one-of-a-kind home decor items, Khumalo Craft offers something for everyone. Join us in celebrating the beauty and artistry of handcrafted creations, and bring a piece of Khumalo Craft into your home today.
+                </p>
+            </div>
+            <div class="w3-third w3-center">
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/564x/99/c5/20/99c520c91efe7c4da9c0786464d0b4bd.jpg" height="250" class="w3-padding-64 w3-text-red" style="max-width: 100%;">
+                    <div class="gallery-item-info">
+                        <h3>Handcrafted Artwork</h3>
+                        <p>Elegant and unique handcrafted artwork, meticulously crafted to add character and style to any space. Our artwork is made with attention to detail and creativity, offering a personalized touch to your home or business décor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+        <h1 class="w3-margin w3-xlarge">Crafting Inspiration: Embrace Creativity</h1>
+        <p class="w3-text-grey w3-large">
+            "Unleash your imagination and create wonders with Khumalo Craft. Our curated selection of handcrafted items invites you to explore the beauty of artisanal craftsmanship. From intricately designed jewelry to meticulously crafted home decor, each piece tells a unique story and reflects the passion of its maker. Let Khumalo Craft inspire you to live a life filled with creativity and expression."
+        </p>
+    </div>
+</body>
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">
+    <div class="w3-xlarge w3-padding-32">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+
+</footer>
+</html>

@@ -1,0 +1,192 @@
+﻿@model IEnumerable<KHCrafts.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1 style="text-decoration: underline; font-weight: bold; text-align: center;">@ViewData["Title"]</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+            .table th, .table td {
+                padding: 8px;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .table th {
+                background-color: #f2f2f2;
+                text-align: left;
+            }
+
+            .table tr:hover {
+                background-color: #f5f5f5;
+            }
+
+        .action-links a {
+            color: white;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+            .action-links a:hover {
+                text-decoration: underline;
+            }
+
+        .rounded-row {
+            border-radius: 10px;
+        }
+
+        .actions {
+            text-align: center;
+        }
+
+        .action-button {
+            display: inline-block;
+            margin: 0 5px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        .edit-button {
+            background-color: #007bff;
+        }
+
+            .edit-button:hover {
+                background-color: #0056b3;
+            }
+
+        .details-button {
+            background-color: #28a745;
+        }
+
+            .details-button:hover {
+                background-color: #218838;
+            }
+
+        .delete-button {
+            background-color: #dc3545;
+        }
+
+            .delete-button:hover {
+                background-color: #c82333;
+            }
+    </style>
+</head>
+<div>
+    <h4>Search Product</h4>
+    <form asp-controller="Products" asp-action="Index" method="get">
+        <div class="form-group">
+            <input type="text" class="form-control" name="searchQuery" placeholder="Enter product name" />
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+        <br />
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a> 
+    </form>
+</div>
+@* @if (string.IsNullOrEmpty(ViewBag.SearchQuery))
+{
+    <div>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+}
+else
+{
+    <p>No products found.</p>
+    <div>
+        <a asp-action="Index" class="btn btn-secondary">Return to Index</a>
+    </div>
+} *@
+<body>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+                <th>@Html.DisplayNameFor(model => model.Category)</th>
+                <th>@Html.DisplayNameFor(model => model.IsAvailable)</th>
+                <th>@Html.DisplayNameFor(model => model.Price)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="rounded-row">
+                    <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Category)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IsAvailable)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                    <td class="actions">
+
+                        <a asp-action="Edit" asp-route-id="@item.ProductId" class="action-button edit-button">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.ProductId" class="action-button details-button">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.ProductId" class="action-button delete-button">Delete</a>
+                    </td>
+
+                    <style>
+                        .actions {
+                            text-align: center;
+                        }
+
+                        .action-button {
+                            display: inline-block;
+                            margin: 0 5px;
+                            padding: 5px 10px;
+                            border-radius: 5px;
+                            text-decoration: none;
+                            color: white;
+                            font-size: 14px;
+                        }
+
+                        .edit-button {
+                            background-color: #007bff;
+                        }
+
+                            .edit-button:hover {
+                                background-color: #0056b3;
+                            }
+
+                        .details-button {
+                            background-color: #28a745;
+                        }
+
+                            .details-button:hover {
+                                background-color: #218838;
+                            }
+
+                        .delete-button {
+                            background-color: #dc3545;
+                        }
+
+                            .delete-button:hover {
+                                background-color: #c82333;
+                            }
+                    </style>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html

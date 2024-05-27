@@ -1,0 +1,130 @@
+﻿@model KHCrafts.ViewModel.CheckoutViewModel
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Your Application Name</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Checkout</h2>
+        <form asp-action="Checkout" method="post" asp-antiforgery="true">
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostalCode" class="control-label"></label>
+                <input asp-for="PostalCode" class="form-control" />
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <h4>Payment Information</h4>
+            <div class="form-group">
+                <label asp-for="CardNumber" class="control-label"></label>
+                <input asp-for="CardNumber" class="form-control" maxlength="16" pattern="\d{16}" />
+                <span asp-validation-for="CardNumber" class="text-danger"></span>
+                <div class="invalid-feedback">
+                    Please enter a valid 16-digit card number.
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExpiryDate" class="control-label"></label>
+                <input asp-for="ExpiryDate" class="form-control" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/?([0-9]{2})" />
+                <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                <div class="invalid-feedback">
+                    Please enter a valid expiry date in MM/YY format.
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CVV" class="control-label"></label>
+                <input asp-for="CVV" class="form-control" maxlength="3" pattern="\d{3}" />
+                <span asp-validation-for="CVV" class="text-danger"></span>
+                <div class="invalid-feedback">
+                    Please enter a valid 3-digit CVV.
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cvvInput = document.getElementById('CVV');
+            cvvInput.addEventListener('input', function () {
+                const value = cvvInput.value;
+                const isValid = /^\d{0,3}$/.test(value);
+                if (!isValid) {
+                    cvvInput.value = value.slice(0, -1);
+                }
+            });
+
+            const expiryDateInput = document.getElementById('ExpiryDate');
+            expiryDateInput.addEventListener('input', function () {
+                let value = expiryDateInput.value;
+                value = value.replace(/[^0-9\/]/g, '');
+                if (value.length === 2 && !value.includes('/')) {
+                    value = value + '/';
+                }
+                expiryDateInput.value = value;
+            });
+
+            expiryDateInput.addEventListener('blur', function () {
+                const value = expiryDateInput.value;
+                const isValid = /^(0[1-9]|1[0-2])\/([0-9]{2})$/.test(value);
+                if (!isValid) {
+                    expiryDateInput.setCustomValidity('Please enter a valid expiry date in MM/YY format.');
+                } else {
+                    expiryDateInput.setCustomValidity('');
+                }
+            });
+
+            const cardNumberInput = document.getElementById('CardNumber');
+            cardNumberInput.addEventListener('input', function () {
+                const value = cardNumberInput.value;
+                const isValid = /^\d{0,16}$/.test(value);
+                if (!isValid) {
+                    cardNumberInput.value = value.slice(0, -1);
+                }
+            });
+
+            cardNumberInput.addEventListener('blur', function () {
+                if (cardNumberInput.value.length !== 16) {
+                    cardNumberInput.setCustomValidity('Please enter exactly 16 digits.');
+                } else {
+                    cardNumberInput.setCustomValidity('');
+                }
+            });
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.11/dist/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

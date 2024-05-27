@@ -1,0 +1,136 @@
+﻿@model IEnumerable<KHCrafts.Models.Product>
+@{
+    ViewData["Title"] = "Our Work";
+    var cultureInfo = new System.Globalization.CultureInfo("en-ZA");
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: black; /*
+                    font-weight: bold;
+                    text-decoration: underline; */
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            .gallery-item:hover {
+                transform: scale(1.05);
+            }
+
+        .gallery-item-info {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+            .btn:hover {
+                background-color: #555;
+            }
+
+        .badge-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+
+        <div class="gallery">
+            @foreach (var product in Model)
+            {
+                <div class="gallery-item">
+                    <img src="@product.ImageURL" alt="@product.ProductName">
+                    <div class="gallery-item-info">
+                        <h3>@product.ProductName</h3>
+                        <p>@product.Category</p>
+                        <p>@product.Price.ToString("C", cultureInfo)</p>
+                        <p>
+                            @if (product.IsAvailable)
+                            {
+                                <span class="badge badge-success">Available</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-secondary">Not Available</span>
+                            }
+                        </p>
+                        <div>
+                            @if (product.IsAvailable)
+                            {
+                                <form asp-action="AddToCart" asp-controller="Cart" method="post">
+                                    <input type="hidden" name="productId" value="@product.ProductId" />
+                                    <button type="submit" class="btn">Add to Cart</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <button class="btn" disabled>Not Available</button>
+                            }
+                        </div>
+                        <br />
+                        <br />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

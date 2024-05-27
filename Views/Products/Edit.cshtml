@@ -1,0 +1,67 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model KHCrafts.Models.Product
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@if (User.IsInRole("Admin"))
+{
+
+    <h1 style="text-align: center;">Edit</h1>
+
+    <h4>Product</h4>
+    <hr />
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ProductId" />
+                <div class="form-group">
+                    <label asp-for="ProductName" class="control-label"></label>
+                    <input asp-for="ProductName" class="form-control" />
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Category" class="control-label"></label>
+                    <input asp-for="Category" class="form-control" />
+                    <span asp-validation-for="Category" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <input class="form-check-input" asp-for="IsAvailable" />
+                    <label class="form-check-label" for="IsAvailable">@Html.DisplayNameFor(model => model.IsAvailable)</label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="imageUrl">Image URL:</label>
+                    <input asp-for="ImageURL" type="text" class="form-control" placeholder="Enter image URL">
+                    <span asp-validation-for="ImageURL" class="text-danger"></span>
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+
+    @section Scripts {
+    @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+}
+else
+{
+    <h2>Not Admin</h2>
+}

@@ -1,0 +1,174 @@
+﻿@{
+    ViewData["Title"] = "About Us";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .about-section {
+            margin-top: 40px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .column {
+            flex: 0 0 calc(33.33% - 20px);
+            margin: 10px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+            .card img {
+                width: 100%;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+            }
+
+        .container {
+            padding: 20px;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="about-section">
+            <h1>About Khumalo Crafts</h1>
+            <p>Welcome to Khumalo Crafts, where we celebrate the artistry and craftsmanship of artisans from around the world. Founded by visionary entrepreneur James Khumalo, our platform serves as a global showcase for handcrafted products, connecting artisans with a discerning audience who appreciate the beauty and authenticity of handmade goods.</p>
+
+        </div>
+
+        <h2>Meet Our Team</h2>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <img src="https://i.pinimg.com/564x/5c/ca/1c/5cca1cd411c006550752b186816fc1bf.jpg" alt="James Khumalo">
+                    <div class="container">
+                        <h2>James Khumalo</h2>
+                        <p class="title">CEO & Founder</p>
+                        <p>
+                            Khumalo Crafts is owned by the visionary businessman James Khumalo. James started Khumalo Crafts with a strong desire to support cultural heritage and empower craftsmen throughout the globe.
+                            He has a strong eye for quality and a passion for artisanal crafting.
+                        </p>
+                        <p>james@example.com</p>
+                        <a href="@Url.Action("ContactUs", "Home")" class="button">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img src="https://i.pinimg.com/564x/f9/ea/e7/f9eae76c845592d7de61ca49f8416d47.jpg" alt="Amahle Khoza">
+                    <div class="container">
+                        <h2>Amahle Khoza</h2>
+                        <p class="title">Lead Production Manager</p>
+                        <p>
+                            As the Lead Production Manager, Amahle Khoza oversees the entire production process, ensuring efficiency, quality, and timely delivery of products.
+                            With excellent leadership abilities and a sharp eye for detail,
+                            Amahle Koza is committed to driving continuous improvement initiatives and fostering a culture of excellence within the production department.
+                        </p>
+                        <p>amahle@example.com</p>
+                        <a href="@Url.Action("ContactUs", "Home")" class="button">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img src="https://i.pinimg.com/564x/00/9f/5f/009f5fa7d48a83a4b295a5f9b55b4d0b.jpg" alt="Zama Ndlovu">
+                    <div class="container">
+                        <h2>Zama Ndlovu</h2>
+                        <p class="title">Lead Designer</p>
+                        <p>
+                            Zama Ndlovu is the lead designer at Khumalo Crafts, responsible for translating ideas into visually stunning designs.
+                            With a keen sense of aesthetics and a dedication to quality, Zama Ndlovu ensures that each product reflects the values and ethos of Khumalo Crafts.
+                        </p>
+                        <p>zama@example.com</p>
+                        <a href="@Url.Action("ContactUs", "Home")" class="button">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1><strong>About Us</strong></h1>
+
+        <p>Welcome to KhumaloCraft Emporium, where we celebrate the artistry and craftsmanship of artisans from around the world. Founded by visionary entrepreneur James Khumalo, our platform serves as a global showcase for handcrafted products, connecting artisans with a discerning audience who appreciate the beauty and authenticity of handmade goods.</p>
+
+        <div class="mission-vision-founder">
+            <h2 style="font-weight: bold; text-decoration: underline;">Our Mission</h2>
+            <p>Our mission at KhumaloCraft Emporium is to empower artisans, promote cultural heritage, and inspire a deep appreciation for handmade craftsmanship. We believe that behind every handcrafted product lies a story of creativity, skill, and dedication, and we are committed to supporting artisans in sharing their talents with the world.</p>
+
+            <h2 style="font-weight: bold; text-decoration: underline;">Our Vision</h2>
+            <p>We envision a world where handcrafted goods are valued and cherished for their unique beauty, quality, and cultural significance. Through KhumaloCraft Emporium, we strive to create a vibrant marketplace where artisans can thrive, customers can discover exquisite treasures, and the art of handmade craftsmanship is celebrated and preserved for generations to come.</p>
+
+            <h2 style="font-weight: bold; text-decoration: underline;">Meet Our Founder</h2>
+            <p>James Khumalo, the driving force behind KhumaloCraft Emporium, is a visionary entrepreneur with a deep appreciation for artisanal craftsmanship. Inspired by his travels and encounters with talented artisans from diverse cultures, James set out to create a platform that celebrates the artistry and creativity of craftsmen worldwide.</p>
+        </div>
+
+        <div class="contact">
+            <h2 style="font-weight: bold; text-decoration: underline;">Get in Touch</h2>
+            <p>We'd love to hear from you! Whether you have questions, feedback, or simply want to say hello, please don't hesitate to <a href=" @Url.Action("ContactUs", "Home")">reach out to us</a>. Your satisfaction is our top priority, and we are here to ensure that your experience with KhumaloCraft Emporium is nothing short of exceptional. Thank you for joining us on this journey of discovery and appreciation for handmade craftsmanship. Welcome to KhumaloCraft Emporium – where every purchase tells a story.</p>
+        </div>
+    </div>
+</body>
+</html>
